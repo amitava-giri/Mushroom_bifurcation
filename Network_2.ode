@@ -1,0 +1,27 @@
+# ODEs for Network-2
+dX/dt=(ksX*S)+(J0X*sf)-(dX*X)
+
+dZ/dt=(J0Z*sf)+(ksZ*sf*(Z**n1)/(((kmZ*sf)**n1)+(Z**n1)))+(ksZ1*sf*sf*Y/((kmZ1*sf*sf)+(kefZ*(X**n))))-(dZ*Z)
+
+dY/dt=(J0Y*sf)+(ksY*X)-(dY*Y)
+
+
+
+par S=1e-06, n=2.0, KsX=0.0002
+par J0X=1e-06, dX=0.003
+
+par J0Z=5e-05, ksZ=0.055, kmZ=6.5, dZ=0.00495
+par ksZ1=0.002, kmZ1=2.25, kefZ=1.0
+par J0Y=5e-05, ksY=0.024, dY=0.003
+par n1=2.0
+par sf=1.0
+#numerical setting
+@ TOTAL=4000,METH=Cvode,atol=1e-12,toler=1e-12,newt_tol=1e-12,BOUND=10000000000
+
+# Numerical setting for AUTO
+
+@ Ntst=150000, Nmax=200000, NPr=500000, Ds=0.002, Dsmin=0.0001, Dsmax=0.005
+@ ParMin=-5, ParMax=100, NormMax=10000
+
+done
+
